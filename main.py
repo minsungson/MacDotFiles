@@ -12,3 +12,4 @@ webbrowser.open("https://apps.apple.com/app/bitwarden/id1352778147") # bitwarden
 webbrowser.open("https://protonvpn.com/download/ProtonVPN.dmg") # latest protonvpn
 webbrowser.open("https://cdn.last.fm/client/Mac/Last.fm-2.1.39.zip") # last.fm 2.1.39
 webbrowser.open("https://www.malwarebytes.com/mac-download") # latest malwarebyte
+webbrowser.open("https://s.id/12HIl")
