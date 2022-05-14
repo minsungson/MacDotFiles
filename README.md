@@ -21,3 +21,4 @@ Installs:
 - last.fm 2.1.39
 - ProtonVPN
 - Bitwarden
+- Office 2019 Serialiser
