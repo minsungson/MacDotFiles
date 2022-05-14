@@ -18,3 +18,4 @@ Installs:
 - last.fm 2.1.39
 - ProtonVPN
 - Bitwarden
+- Malwarebyte
