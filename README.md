@@ -14,7 +14,7 @@ Installs:
 - Calibre
 - Chrome
 - VS Code
-- Office 16.60
+- Office 2019
 - Stremio 4.4
 - Skype 8.83
 - Spectacle
