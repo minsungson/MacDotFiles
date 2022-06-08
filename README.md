@@ -1,4 +1,4 @@
-# For Setting up a new Mac
+# macOS Setup
 ## Installation
 1. Install Homebrew
 ```
