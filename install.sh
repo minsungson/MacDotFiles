@@ -1,19 +1,21 @@
 # !/bin/zsh
 
-# Install xCode cli tools
-echo "Installing commandline tools..."
-xcode-select --install
+# # Install xCode cli tools
+# echo "Installing commandline tools..."
+# xcode-select --install
 
-# Install Brew
-echo "Installing Brew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew analytics off
+# # Install Brew
+# echo "Installing Brew..."
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# brew analytics off
 
 # # Mac App Store Apps
 echo "Installing Mac App Store Apps..."
 mas install 409201541 #Pages
 mas install 409203825 #Numbers
 mas install 1352778147 #Bitwarden
+mas install 462054704 #Word
+mas install 462062816 #PowerPoint
 
 # macOS Settings
 echo "Resize dock icons to 36px"
