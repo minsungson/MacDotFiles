@@ -129,6 +129,7 @@ killall Dock && killall Finder
 
 # Python Packages
 echo "Installing Python Packages..."
+pip3 install --upgrade pip
 pip3 install matplotlib
 pip3 install seaborn
 pip3 install colorama
