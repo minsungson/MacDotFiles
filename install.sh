@@ -93,7 +93,7 @@ sudo chown ${whoami}:admin /usr/local/sbin
 echo 'export PATH=$PATH:/usr/local/sbin' >> ~/.zshrc
 source ~/.zshrc
 
-sudo curl --fail --output /usr/local/sbin/first-names.txt https://raw.githubusercontent.com/sunknudsen/privacy-guides/master/how-to-spoof-mac-address-and-hostname-automatically-at-boot-on-macos/first-names.txt
+sudo curl --fail --output /usr/local/sbin/first-names.txt https://raw.githubusercontent.com/minsungson/DotFiles/master/first-names.txt
 
 cat << "EOF" > /usr/local/sbin/spoof.sh
 #! /bin/sh
