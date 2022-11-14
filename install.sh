@@ -9,7 +9,6 @@ echo "Installing Brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew analytics off
 brew upgrade
-
 brew install --cask rectangle
 
 # # Mac App Store Apps
@@ -21,109 +20,63 @@ mas install 462054704 #Word
 mas install 462062816 #PowerPoint
 
 # macOS Settings
-echo "Resize dock icons to 36px"
-sudo defaults write com.apple.dock "tilesize" -int "36" && killall Dock
-
-echo "Enable autohide"
+echo "Changing macOS Settings"
+defaults write com.apple.desktopservices "DSDontWriteNetworkStores" -bool true #Don't write DS
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool false #Don't show file extensions
+defaults write NSGlobalDomain "com.apple.swipescrolldirection" -bool true #Enable Natural Scroll
+defaults write NSGlobalDomain "NSAutomaticSpellingCorrectionEnabled" -bool true #Enable Autocorrect
+defaults write com.apple.dock mineffect -string "suck" && killall Dock #Change minimise animation
+# defaults write NSGlobalDomain AppleHighlightColor -string "0.65098 0.85490 0.58431"
+defaults write -g "NSNavPanelExpandedStateForSaveMode" -boolean true #Expand Save windows by default
+defaults write -g "NSNavPanelExpandedStateForSaveMode2" -bool true #Expand Save windows by default
+defaults write -g "PMPrintingExpandedStateForPrint" -boolean true #Expand Print window by default
+defaults write -g "PMPrintingExpandedStateForPrint2" -bool true #Expand Print window by default
+defaults write -g "NSDocumentSaveNewDocumentsToCloud" -bool false #Don't automatically save to iCloud Drive
+defaults write com.apple.screencapture disable-shadow -bool true  && killall SystemUIServer #Disable shadow on Screenshots
+defaults write com.apple.Safari "AutoOpenSafeDownloads" -bool false #Don't auto extract compressed files from Safari Downloads
+defaults write com.apple.Safari "IncludeDevelopMenu" -bool true #Show Developer Menu
+defaults write com.apple.finder "ShowExternalHardDrivesOnDesktop" -bool true #Show External Drives on Desktop
+defaults write com.apple.finder "ShowHardDrivesOnDesktop" -bool true #Show Internal Drives on Desktop
+defaults write com.apple.finder "ShowMountedServersOnDesktop" -bool true #Show Connnected Servers on Desktop
+defaults write com.apple.finder "ShowRemovableMediaOnDesktop" -bool false #Show Removal Media on Desktop
+defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool false #Don't warn about file extension change
+defaults write com.apple.finder "_FXShowPosixPathInTitle" -bool false #Don't show file path in address bar
+defaults write com.apple.LaunchServices "LSQuarantine" -bool NO
+defaults write com.apple.DiskUtility "DUShowEveryPartition" -bool true #Show hidden partitions
+defaults write com.apple.finder "AppleShowAllFiles" false #Don't show hidden files
+defaults write com.apple.finder "ShowStatusBar" -bool true #Show status bar
+defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int 1 #Small sidebar icons
+defaults write com.apple.mail "SendWindowsFriendlyAttachments" -boolean TRUE #Send Windows Ffiendly attachments
+defaults -currentHost write com.apple.QuickTimePlayerX.plist "MGEnableCCAndSubtitlesOnOpen" -bool TRUE #Auto show CC
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "AutomaticCheckEnabled" -bool YES #Auto check for Software Updates
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate "AutomaticDownload" -bool YES #Auto download Software Updates
+sudo defaults write /Library/Preferences/com.apple.commerce "AutoUpdate" -bool YES #Auto update apps
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "CriticalUpdateInstall" -bool YES #Auto install critical updates
+sudo defaults write com.apple.dock "tilesize" -int "36" && killall Dock #Resize dock icons to 36px
 defaults write com.apple.dock "autohide" -bool "true" # enable autohide
-
-echo "Left align dock"
 defaults write com.apple.dock "orientation" -string "left" && killall Dock # left align
-
-echo "Reduce dock unhide animation"
 defaults write com.apple.dock "autohide-time-modifier" -float "0.25" # reduce animation
-
-echo "Unhide dock immediately on hover"
 defaults write com.apple.dock "autohide-delay" -float "0" # unhide immediately
-
-echo "Don't show recents"
 defaults write com.apple.dock "show-recents" -bool "false" # hide recents
-
-echo "Allow quitting Finder via ⌘ + Q"
 defaults write com.apple.finder "QuitMenuItem" -bool "true"
-
-echo "Hide desktop icons"
-defaults write com.apple.finder "CreateDesktop" -bool "false" && killall Finder
-
-echo "Minimise animation to 'scale'"
-defaults write com.apple.dock "mineffect" -string "scale"
-
-echo "Disable the warning when changing a file extension"
-defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
-
-echo "Don't automatically save to cloud"
-defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false" # don't auto save to cloud
-
-echo "Enable snap-to-grid for desktop icons"
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
-echo "Require password immediately after sleep or screen saver begins"
-defaults write com.apple.screensaver "askForPassword" -int "1"
-defaults write com.apple.screensaver "askForPasswordDelay" -int "0"
-
-echo "Tap to click for this user and for the login screen"
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad "Clicking" -bool "true"
-defaults -currentHost write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1"
-defaults write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1"
-
-echo "Firm Haptic Feedback"
-defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "1"
-defaults write com.apple.AppleMultitouchTrackpad "SecondClickThreshold" -int "2"
-
-echo "Fast trackpad tracking"
-defaults write NSGlobalDomain "com.apple.trackpad.scaling" -int "3"
-
-echo "Enable three finger drag"
-defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -int "1"
-defaults write com.apple.AppleMultitouchTrackpad "com.apple.driver.AppleBluetoothMultitouch.trackpad" -int "1"
-
-echo "Show path bar in Finder"
-defaults write com.apple.finder "ShowPathbar" -bool "true"
-
-echo "Show status bar in Finder"
-defaults write com.apple.finder "ShowStatusBar" -bool "true"
-
-echo "Show seconds in menu bar"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid for desktop icons
+defaults write com.apple.screensaver "askForPassword" -int "1" #Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver "askForPasswordDelay" -int "0" #Require password immediately after sleep or screen saver begins
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad "Clicking" -bool "true" #Tap to click for this user and for the login screen
+defaults -currentHost write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1" #Tap to click for this user and for the login screen
+defaults write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1" #Tap to click for this user and for the login screen
+defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "0" #Soft Haptic Feedback
+defaults write com.apple.AppleMultitouchTrackpad "SecondClickThreshold" -int "0" #Soft Haptic Feedback
+defaults write NSGlobalDomain "com.apple.trackpad.scaling" -int "3" #Fast trackpad tracking
+defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -int "1"  #Enable three finder drag for internal trackpad
+defaults write com.apple.AppleMultitouchTrackpad "com.apple.driver.AppleBluetoothMultitouch.trackpad" -int "1" #Enable three finder drag for external trackpad
+defaults write com.apple.finder "ShowPathbar" -bool "true" #Show path bar in Finder
+defaults write com.apple.finder "ShowStatusBar" -bool "true" #Show status bar in Finder
 defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\"" # show seconds in menu bar
-
-echo "Immediately unhide icon in Finder title"
 defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0" # immediately show icon in finder next to name
-
-echo "Expand save file panel by default"
-defaults write NSGlobalDomain "NSNavPanelExpandedStateForSaveMode" -bool "true" # expand save window by default
-
-echo "Expand print panel by default"
-defaults write NSGlobalDomain "PMPrintingExpandedStateForPrint" -bool "true" # expand print panel
-
-echo "Change Finder Sidebar size"
-defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1"
-
-echo "Enable spring loaded for all icons in dock"
-defaults write com.apple.dock "enable-spring-load-actions-on-all-items" -bool "true"
-
-echo "Increase window resize speed for Cocoa applications"
-defaults write NSGlobalDomain "NSWindowResizeTime" -float "0.001"
-
-echo "Avoid creating .DS_Store files on network volumes"
-defaults write com.apple.desktopservices "DSDontWriteNetworkStores" -bool "true"
-
-echo "Disable media not ejected properly notification"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd 
-
-echo "Don't show TimeMachine message for new drives"
-sudo defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool YES
-
-echo "Save ScreenShots as .jpg instead of .png"
-defaults write com.apple.screencapture type jpg
-
-echo "Make apps with hidden windows translucent"
-defaults write com.apple.Dock showhidden -bool TRUE && killall Dock
-
-echo "Remove all Dock icons"
-defaults write com.apple.dock persistent-apps -array
-
-echo "Restarting Dock and Finder"
-killall Dock && killall Finder
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd #Disable media not ejected properly notification
+sudo defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Don't show TimeMachine message for new drives
+defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
 
 # Python Packages
 echo "Installing Python Packages..."
