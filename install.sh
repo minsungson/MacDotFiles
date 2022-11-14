@@ -9,6 +9,7 @@ echo "Installing Brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew analytics off
 brew upgrade
+brew install mas
 brew install --cask rectangle
 
 # # Mac App Store Apps
