@@ -8,6 +8,9 @@ xcode-select --install
 echo "Installing Brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew analytics off
+brew upgrade
+
+brew install --cask rectangle
 
 # # Mac App Store Apps
 echo "Installing Mac App Store Apps..."
@@ -58,18 +61,13 @@ echo "Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver "askForPassword" -int "1"
 defaults write com.apple.screensaver "askForPasswordDelay" -int "0"
 
-echo "Enable tap to click on Trackpad and login screen"
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad "Clicking" -bool "true"
-defaults write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1"
-defaults write "com.apple.mouse.tapBehaviour" -int "1"
-
 echo "Tap to click for this user and for the login screen"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad "Clicking" -bool "true"
 defaults -currentHost write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1"
 defaults write NSGlobalDomain "com.apple.mouse.tapBehavior" -int "1"
 
 echo "Firm Haptic Feedback"
-defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "2"
+defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "1"
 defaults write com.apple.AppleMultitouchTrackpad "SecondClickThreshold" -int "2"
 
 echo "Fast trackpad tracking"
