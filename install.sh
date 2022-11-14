@@ -156,3 +156,5 @@ EOF
 chmod +x /usr/local/sbin/spoof-hook.sh
 
 sudo defaults write com.apple.loginwindow LogoutHook "/usr/local/sbin/spoof-hook.sh"
+
+echo "Script finished"
