@@ -10,7 +10,7 @@ echo "Installing Brew..."
 brew analytics off
 brew upgrade
 brew install mas
-brew install --cask rectangle
+brew install amethyst
 
 # # Mac App Store Apps
 echo "Installing Mac App Store Apps..."
