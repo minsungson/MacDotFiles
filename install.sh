@@ -1,5 +1,8 @@
 # !/bin/zsh
 
+# Install all latest Software Updates
+sudo softwareupdate -i -a
+
 # Install xCode cli tools
 echo "Installing commandline tools..."
 xcode-select --install
