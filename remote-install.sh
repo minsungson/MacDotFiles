@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# !/bin/zsh
 
 SOURCE="https://github.com/minsungson/DotFiles"
 TARBALL="$SOURCE/tarball/master"
