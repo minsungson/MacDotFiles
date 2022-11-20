@@ -96,11 +96,19 @@ defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instea
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
 
 # Set Locale
-echo "Settings locale"
+echo "Settings locale..."
 defaults write NSGlobalDomain AppleLanguages -array "de" "de"
 defaults write NSGlobalDomain AppleLocale -string "de_GB@currency=GBP"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -int 1
+
+# Energy settings
+echo "Changing Energy Settings"
+sudo systemsetup -setrestartfreeze on # Restart automatically if the computer freezes
+sudo pmset -a displaysleep 15 # Sleep the display after 15 minutes
+sudo pmset -c displaysleep 20 # Sleep the display after 20 minutes when charging
+sudo pmset -b sleep 15 # Set machine sleep to 5 minutes on battery
+sudo pmset -a hibernatemode 3 # 3: Copy RAM to disk so the system state can still be restored in case of a power failure
 
 # Python Packages
 echo "Installing Python Packages..."
