@@ -128,7 +128,7 @@ pip3 install seaborn
 pip3 install colorama
 
 # Install Serialiser
-sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles-master/Microsoft_Office_2019_VL_Serializer.pkg" -target /
+sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
 
 # Spoof MAC Address on Boot
 mkdir -p /usr/local/sbin
