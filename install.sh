@@ -93,6 +93,7 @@ defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0" # imm
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd #Disable media not ejected properly notification
 sudo defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Don't show TimeMachine message for new drives
 defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
 
 # Python Packages
 echo "Installing Python Packages..."
