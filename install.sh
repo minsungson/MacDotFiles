@@ -4,6 +4,9 @@
 echo "Enter Admin Password"
 sudo -v
 
+# Keep-alive: update existing `sudo` time stamp until script has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Kill System Preferences to prevent override
 echo "Quitting System Preferences"
 osascript -e 'tell application "System Preferences" to quit'
