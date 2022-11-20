@@ -94,6 +94,7 @@ defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitratio
 defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Don't show TimeMachine message for new drives
 defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv" #Finder windows open with list view
 
 # Set Locale
 echo "Settings locale..."
