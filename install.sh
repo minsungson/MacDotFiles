@@ -98,6 +98,10 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv" #Finder wind
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid
+defaults write com.apple.dock wvous-bl-corner -int 11 #Bottom left hot corner for mission control
+defaults write com.apple.dock wvous-bl-modifier -int 0 #Bottom left hot corner for mission control
+defaults write com.apple.dock wvous-br-corner -int 5 #Bottom right hot corner for screensaver
+defaults write com.apple.dock wvous-br-modifier -int 0 #Bottom right hot corner for screensaver
 
 # Set Locale
 echo "Settings locale..."
