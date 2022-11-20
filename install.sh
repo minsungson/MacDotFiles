@@ -1,5 +1,9 @@
 # !/bin/zsh
 
+# Ask for admin password upfront
+echo "Enter Admin Password"
+sudo -v
+
 # Kill System Preferences to prevent override
 echo "Quitting System Preferences"
 osascript -e 'tell application "System Preferences" to quit'
