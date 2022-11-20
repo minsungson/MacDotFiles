@@ -95,6 +95,13 @@ defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Do
 defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
 
+# Set Locale
+echo "Settings locale"
+defaults write NSGlobalDomain AppleLanguages -array "de" "de"
+defaults write NSGlobalDomain AppleLocale -string "de_GB@currency=GBP"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -int 1
+
 # Python Packages
 echo "Installing Python Packages..."
 pip3 install --upgrade pip
