@@ -95,6 +95,9 @@ defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Do
 defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv" #Finder windows open with list view
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist #Enable snap-to-grid
 
 # Set Locale
 echo "Settings locale..."
