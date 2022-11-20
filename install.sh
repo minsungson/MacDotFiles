@@ -1,5 +1,9 @@
 # !/bin/zsh
 
+# Kill System Preferences to prevent override
+echo "Quitting System Preferences"
+osascript -e 'tell application "System Preferences" to quit'
+
 # Install all latest Software Updates
 echo "Installing Software Updates"
 sudo softwareupdate -i -a
