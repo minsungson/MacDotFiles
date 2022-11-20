@@ -1,6 +1,7 @@
 # !/bin/zsh
 
 # Install all latest Software Updates
+echo "Installing Software Updates"
 sudo softwareupdate -i -a
 
 # Install xCode cli tools
