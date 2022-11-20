@@ -2,10 +2,10 @@
 
 # Ask for admin password upfront
 echo "Enter Admin Password"
-sudo -v
+-v
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Kill System Preferences to prevent override
 echo "Quitting System Preferences"
@@ -13,7 +13,7 @@ osascript -e 'tell application "System Preferences" to quit'
 
 # Install all latest Software Updates
 echo "Installing Software Updates"
-sudo softwareupdate -i -a
+softwareupdate -i -a
 
 # Install xCode cli tools
 echo "Installing commandline tools..."
@@ -64,11 +64,11 @@ defaults write com.apple.finder "ShowStatusBar" -bool true #Show status bar
 defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int 1 #Small sidebar icons
 defaults write com.apple.mail "SendWindowsFriendlyAttachments" -boolean TRUE #Send Windows Ffiendly attachments
 defaults -currentHost write com.apple.QuickTimePlayerX.plist "MGEnableCCAndSubtitlesOnOpen" -bool TRUE #Auto show CC
-sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "AutomaticCheckEnabled" -bool YES #Auto check for Software Updates
-sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate "AutomaticDownload" -bool YES #Auto download Software Updates
-sudo defaults write /Library/Preferences/com.apple.commerce "AutoUpdate" -bool YES #Auto update apps
-sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "CriticalUpdateInstall" -bool YES #Auto install critical updates
-sudo defaults write com.apple.dock "tilesize" -int "36" && killall Dock #Resize dock icons to 36px
+defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "AutomaticCheckEnabled" -bool YES #Auto check for Software Updates
+defaults write /Library/Preferences/com.apple.SoftwareUpdate "AutomaticDownload" -bool YES #Auto download Software Updates
+defaults write /Library/Preferences/com.apple.commerce "AutoUpdate" -bool YES #Auto update apps
+defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "CriticalUpdateInstall" -bool YES #Auto install critical updates
+defaults write com.apple.dock "tilesize" -int "36" && killall Dock #Resize dock icons to 36px
 defaults write com.apple.dock "autohide" -bool "true" # enable autohide
 defaults write com.apple.dock "orientation" -string "left" && killall Dock # left align
 defaults write com.apple.dock "autohide-time-modifier" -float "0.25" # reduce animation
@@ -90,8 +90,8 @@ defaults write com.apple.finder "ShowPathbar" -bool "true" #Show path bar in Fin
 defaults write com.apple.finder "ShowStatusBar" -bool "true" #Show status bar in Finder
 defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\"" # show seconds in menu bar
 defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0" # immediately show icon in finder next to name
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd #Disable media not ejected properly notification
-sudo defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Don't show TimeMachine message for new drives
+defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && pkill diskarbitrationd #Disable media not ejected properly notification
+defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Don't show TimeMachine message for new drives
 defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
 
@@ -103,13 +103,13 @@ pip3 install seaborn
 pip3 install colorama
 
 # Spoof MAC Address on Boot
-sudo mkdir -p /usr/local/sbin
-sudo chown ${whoami}:admin /usr/local/sbin
+mkdir -p /usr/local/sbin
+chown ${whoami}:admin /usr/local/sbin
 
 echo 'export PATH=$PATH:/usr/local/sbin' >> ~/.zshrc
 source ~/.zshrc
 
-sudo curl --fail --output /usr/local/sbin/first-names.txt https://raw.githubusercontent.com/minsungson/DotFiles/master/first-names.txt
+curl --fail --output /usr/local/sbin/first-names.txt https://raw.githubusercontent.com/minsungson/DotFiles/master/first-names.txt
 
 cat << "EOF" > /usr/local/sbin/spoof.sh
 #! /bin/sh
@@ -126,9 +126,9 @@ first_name=$(sed "$(jot -r 1 1 2048)q;d" $basedir/first-names.txt | sed -e 's/[^
 model_name=$(system_profiler SPHardwareDataType | awk '/Model Name/ {$1=$2=""; print $0}' | sed -e 's/^[ ]*//')
 computer_name="$first_name’s $model_name"
 host_name=$(echo $computer_name | sed -e 's/’//g' | sed -e 's/ /-/g')
-sudo scutil --set ComputerName "$computer_name"
-sudo scutil --set LocalHostName "$host_name"
-sudo scutil --set HostName "$host_name"
+scutil --set ComputerName "$computer_name"
+scutil --set LocalHostName "$host_name"
+scutil --set HostName "$host_name"
 printf "%s\n" "Spoofed hostname to $host_name"
 
 # Spoof MAC address of Wi-Fi interface
@@ -136,14 +136,14 @@ mac_address_prefix=$(networksetup -listallhardwareports | awk -v RS= '/en0/{prin
 mac_address_suffix=$(openssl rand -hex 3 | sed 's/\(..\)/\1:/g; s/.$//')
 mac_address=$(echo "$mac_address_prefix:$mac_address_suffix" | awk '{print tolower($0)}')
 networksetup -setairportpower en0 on
-sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport --disassociate
-sudo ifconfig en0 ether "$mac_address"
+/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport --disassociate
+ifconfig en0 ether "$mac_address"
 printf "%s\n" "Spoofed MAC address of en0 interface to $mac_address"
 EOF
 
 chmod +x /usr/local/sbin/spoof.sh
 
-cat << "EOF" | sudo tee /Library/LaunchDaemons/local.spoof.plist
+cat << "EOF" | tee /Library/LaunchDaemons/local.spoof.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -171,6 +171,6 @@ EOF
 
 chmod +x /usr/local/sbin/spoof-hook.sh
 
-sudo defaults write com.apple.loginwindow LogoutHook "/usr/local/sbin/spoof-hook.sh"
+defaults write com.apple.loginwindow LogoutHook "/usr/local/sbin/spoof-hook.sh"
 
 echo "Script finished"
