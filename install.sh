@@ -294,4 +294,9 @@ dockutil --no-restart --add "/System/Applications/Music.app"
 dockutil --no-restart --add "/Applications/VS\ Code.app"
 killall Dock
 
+# Change wallpaper
+echo "Changing Wallpaper"
+cp /Users/"$(whoami)"/DotFiles/archMacintosh.png /Users/"$(whoami)"/Pictures/
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/"$(whoami)"/Pictures/archMacintosh.png"'
+
 echo "Script finished"
