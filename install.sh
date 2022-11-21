@@ -113,7 +113,7 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -int 1
 
 # Energy settings
-echo "Changing Energy Settings"
+echo "Changing Energy Settings..."
 sudo systemsetup -setrestartfreeze on # Restart automatically if the computer freezes
 sudo pmset -a displaysleep 15 # Sleep the display after 15 minutes
 sudo pmset -c displaysleep 20 # Sleep the display after 20 minutes when charging
@@ -128,18 +128,21 @@ pip3 install seaborn
 pip3 install colorama
 
 # Install Serialiser
+echo "Activating Office..."
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
 cp /Users/"$(whoami)"/Microsoft_Office_2019_VL_Serializer.pkg /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/Microsoft_Office_2019_VL_Serializer.pkg
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
 
 # Install Python 3.11
+echo "Installing Python..."
 curl -C - --output python-3.11.0-macos11.pkg https://www.python.org/ftp/python/3.11.0/python-3.11.0-macos11.pkg
 cp /Users/"$(whoami)"/python-3.11.0-macos11.pkg /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/python-3.11.0-macos11.pkg
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/3.11.0/python-3.11.0-macos11.pkg" -target /
 
 # Install Skype 8.90.0.407
+echo "Installing Skype..."
 curl -C - --output Skype-8.90.0.407.dmg https://download.skype.com/s4l/download/mac/Skype-8.90.0.407.dmg
 cp /Users/"$(whoami)"/Skype-8.90.0.407.dmg /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/Skype-8.90.0.407.dmg
@@ -148,6 +151,7 @@ sudo cp -R /Volumes/Skype/Skype.app /Applications
 hdiutil unmount /Volumes/Skype -quiet -force
 
 # Install Stremio 4.4.159
+echo "Installing Stremio..."
 curl -C - --output Stremio+4.4.159.dmg https://dl.strem.io/shell-osx/v4.4.159/Stremio+4.4.159.dmg
 cp /Users/"$(whoami)"/Stremio+4.4.159.dmg /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/Stremio+4.4.159.dmg
@@ -156,6 +160,7 @@ sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Applications
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
 
 # Install GitHub Desktop
+echo "Installing GitHub Desktop..."
 curl -C - --output GitHubDesktop-x64.zip https://desktop.githubusercontent.com/github-desktop/releases/3.1.2-7cd66717/GitHubDesktop-x64.zip
 cp /Users/"$(whoami)"/GitHubDesktop-x64.zip /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/GitHubDesktop-x64.zip
