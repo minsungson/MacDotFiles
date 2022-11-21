@@ -285,4 +285,11 @@ defaults write com.apple.loginwindow LogoutHook "/usr/local/sbin/spoof-hook.sh"
 echo "Installing Software Updates"
 softwareupdate -i -a
 
+# Add Dock Icons
+dockutil --no-restart --remove all
+dockutil --no-restart --add "/Applications/Firefox.app"
+dockutil --no-restart --add "/System/Applications/Mail.app"
+dockutil --no-restart --add "/System/Applications/Music.app"
+dockutil --no-restart --add "/Applications/VS\ Code.app"
+
 echo "Script finished"
