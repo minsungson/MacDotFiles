@@ -286,6 +286,7 @@ echo "Installing Software Updates"
 softwareupdate -i -a
 
 # Add Dock Icons
+echo "Adding Dock Items"
 dockutil --no-restart --remove all
 dockutil --no-restart --add "/Applications/Firefox.app"
 dockutil --no-restart --add "/System/Applications/Mail.app"
