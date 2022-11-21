@@ -151,6 +151,14 @@ hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
 sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Users/"$(whoami)"/DotFiles
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
 
+# Install GitHub Desktop
+curl -C - --output GitHubDesktop-x64.zip https://desktop.githubusercontent.com/github-desktop/releases/3.1.2-7cd66717/GitHubDesktop-x64.zip
+cp /Users/"$(whoami)"/GitHubDesktop-x64.zip /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/GitHubDesktop-x64.zip
+cd /Users/"$(whoami)"/DotFiles
+unzip -q GitHubDesktop-x64.zip
+sudo cp -R /Users/"$(whoami)"/DotFiles/GitHub\ Desktop.app /Applications
+
 # Spoof MAC Address on Boot
 mkdir -p /usr/local/sbin
 chown ${whoami}:admin /usr/local/sbin
