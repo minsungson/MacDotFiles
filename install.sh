@@ -168,6 +168,15 @@ hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
 sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Applications
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
 
+# Install App Cleaner
+echo "Installing App Cleaner"
+curl -C - --output AppCleaner_3.6.4.zip https://freemacsoft.net/downloads/AppCleaner_3.6.4.zip
+cp /Users/"$(whoami)"/AppCleaner_3.6.4.zip /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/AppCleaner_3.6.4.zip
+cd /Users/"$(whoami)"/DotFiles
+unzip -q AppCleaner_3.6.4.zip
+sudo cp -R /Users/"$(whoami)"/DotFiles/AppCleaner.app /Applications
+
 # Install KDE-Connect
 echo "Installing KDE Connect"
 curl -C - --output kdeconnect-kde-master-1713-macos-clang-x86_64.dmg https://binary-factory.kde.org/view/MacOS/job/kdeconnect-kde_Nightly_macos/lastSuccessfulBuild/artifact/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg
