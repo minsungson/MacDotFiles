@@ -1,11 +1,9 @@
 # !/bin/zsh
 
 # Kill System Preferences to prevent override
-echo "Quitting System Preferences"
 osascript -e 'tell application "System Preferences" to quit'
 
 # macOS Settings
-echo "Changing macOS Settings"
 defaults write com.apple.desktopservices "DSDontWriteNetworkStores" -bool true #Don't write DS
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool false #Don't show file extensions
 defaults write NSGlobalDomain "com.apple.swipescrolldirection" -bool true #Enable Natural Scroll

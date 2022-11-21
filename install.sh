@@ -7,10 +7,6 @@ echo "Enter Admin Password"
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-bash "/Users/"$(whoami)"/DotFiles/.macos.sh"
-
-bash "/Users/"$(whoami)"/DotFiles/.applications.sh"
-
 # Install xCode cli tools
 echo "Installing commandline tools"
 xcode-select --install
@@ -37,6 +33,14 @@ pip3 install --upgrade pip
 pip3 install matplotlib
 pip3 install seaborn
 pip3 install colorama
+
+# Change macOS Defaults
+echo "Quitting System Preferences and Changing macOS Settings"
+bash "/Users/"$(whoami)"/DotFiles/.macos.sh"
+
+# Install Mac Apps
+echo "Installing Apps"
+bash "/Users/"$(whoami)"/DotFiles/.applications.sh"
 
 # Spoof MAC Address on Boot
 echo "Spoof MAC Address on Boot"
