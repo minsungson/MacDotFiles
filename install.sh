@@ -182,6 +182,15 @@ cd /Users/"$(whoami)"/DotFiles
 unzip -q AppCleaner_3.6.4.zip
 sudo cp -R /Users/"$(whoami)"/DotFiles/AppCleaner.app /Applications
 
+# Install Anki
+echo "Installing Anki"
+curl -C - --output anki-2.1.54-mac-intel-qt6.dmg "https://apps.ankiweb.net/downloads/archive/anki-2.1.54-mac-intel-qt6.dmg"
+cp /Users/"$(whoami)"/anki-2.1.54-mac-intel-qt6.dmg /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/anki-2.1.54-mac-intel-qt6.dmg
+hdiutil attach /Users/"$(whoami)"/DotFiles/anki-2.1.54-mac-intel-qt6.dmg -quiet
+sudo cp -R /Volumes/Anki/Anki.app /Applications
+hdiutil unmount /Volumes/Anki/Anki.app -quiet -force
+
 # Install KDE-Connect
 echo "Installing KDE Connect"
 curl -C - --output kdeconnect-kde-master-1713-macos-clang-x86_64.dmg https://binary-factory.kde.org/view/MacOS/job/kdeconnect-kde_Nightly_macos/lastSuccessfulBuild/artifact/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg
