@@ -127,6 +127,14 @@ pip3 install matplotlib
 pip3 install seaborn
 pip3 install colorama
 
+# Install VS Code
+curl -C - --output VSCode-darwin-universal.zip https://az764295.vo.msecnd.net/stable/6261075646f055b99068d3688932416f2346dd3b/VSCode-darwin-universal.zip
+cp /Users/"$(whoami)"/VSCode-darwin-universal.zip /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/VSCode-darwin-universal.zip
+cd /Users/"$(whoami)"/DotFiles
+unzip -q VSCode-darwin-universal.zip
+sudo cp -R /Users/"$(whoami)"/DotFiles/Visual\ Studio\ Code.app /Applications
+
 # Install Serialiser
 echo "Activating Office..."
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
