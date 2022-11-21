@@ -140,7 +140,7 @@ sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/3.
 curl -C - --output Skype-8.90.0.407.dmg https://download.skype.com/s4l/download/mac/Skype-8.90.0.407.dmg
 cp /Users/"$(whoami)"/Skype-8.90.0.407.dmg
 hdiutil attach /Users/"$(whoami)"/DotFiles/Skype-8.90.0.407.dmg -quiet
-sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Users/"$(whoami)"/DotFiles
+sudo cp -R /Volumes/Skype/Skype.app /Applications
 hdiutil unmount /Volumes/Skype -quiet -force
 
 # Install Stremio 4.4.159
