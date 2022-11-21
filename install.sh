@@ -148,7 +148,7 @@ curl -C - --output Stremio+4.4.159.dmg https://dl.strem.io/shell-osx/v4.4.159/St
 cp /Users/"$(whoami)"/Stremio+4.4.159.dmg /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/Stremio+4.4.159.dmg
 hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
-sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Users/"$(whoami)"/DotFiles
+sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Applications
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
 
 # Install GitHub Desktop
