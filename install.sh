@@ -129,6 +129,9 @@ pip3 install colorama
 
 # Install Serialiser
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
+cp /Users/"$(whoami)"/Microsoft_Office_2019_VL_Serializer.pkg /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/Microsoft_Office_2019_VL_Serializer.pkg
+sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
 
 # Install Python 3.11
 curl -C - --output python-3.11.0-macos11.pkg https://www.python.org/ftp/python/3.11.0/python-3.11.0-macos11.pkg
