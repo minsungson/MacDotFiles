@@ -136,6 +136,13 @@ cp /Users/"$(whoami)"/python-3.11.0-macos11.pkg /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/python-3.11.0-macos11.pkg
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/3.11.0/python-3.11.0-macos11.pkg" -target /
 
+# Install Skype 8.90.0.407
+curl -C - --output Skype-8.90.0.407.dmg https://download.skype.com/s4l/download/mac/Skype-8.90.0.407.dmg
+cp /Users/"$(whoami)"/Skype-8.90.0.407.dmg
+hdiutil attach /Users/"$(whoami)"/DotFiles/Skype-8.90.0.407.dmg -quiet
+sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Users/"$(whoami)"/DotFiles
+hdiutil unmount /Volumes/Skype -quiet -force
+
 # Spoof MAC Address on Boot
 mkdir -p /usr/local/sbin
 chown ${whoami}:admin /usr/local/sbin
