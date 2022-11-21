@@ -168,6 +168,15 @@ hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
 sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Applications
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
 
+# Install KDE-Connect
+echo "Installing KDE Connect"
+curl -C - --output kdeconnect-kde-master-1713-macos-clang-x86_64.dmg https://binary-factory.kde.org/view/MacOS/job/kdeconnect-kde_Nightly_macos/lastSuccessfulBuild/artifact/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg
+cp /Users/"$(whoami)"/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg
+hdiutil attach /Users/"$(whoami)"/DotFiles/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg -quiet
+sudo cp -R /Volumes/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg/kdeconnect-indicator.app /Applications
+hdiutil unmount /Volumes/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg/kdeconnect-indicator.app -quiet -force
+
 # Install GitHub Desktop
 echo "Installing GitHub Desktop"
 curl -C - --output GitHubDesktop-x64.zip https://desktop.githubusercontent.com/github-desktop/releases/3.1.2-7cd66717/GitHubDesktop-x64.zip
