@@ -168,6 +168,15 @@ hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
 sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Applications
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
 
+# Install Calibre 6.8.0
+echo "Installing Calibre"
+curl -C - --output calibre-6.8.0.dmg https://download.calibre-ebook.com/6.8.0/calibre-6.8.0.dmg
+cp /Users/"$(whoami)"/calibre-6.8.0.dmg /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/calibre-6.8.0.dmg
+hdiutil attach /Users/"$(whoami)"/DotFiles/calibre-6.8.0.dmg -quiet
+sudo cp -R /Volumes/calibre-6.8.0/calibre.app /Applications
+hdiutil unmount /Volumes/calibre-6.8.0/calibre.app -quiet -force
+
 # Install App Cleaner
 echo "Installing App Cleaner"
 curl -C - --output AppCleaner_3.6.4.zip https://freemacsoft.net/downloads/AppCleaner_3.6.4.zip
