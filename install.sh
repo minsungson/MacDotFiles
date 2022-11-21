@@ -11,10 +11,6 @@ while true; do -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Quitting System Preferences"
 osascript -e 'tell application "System Preferences" to quit'
 
-# Install all latest Software Updates
-echo "Installing Software Updates"
-softwareupdate -i -a
-
 # Install xCode cli tools
 echo "Installing commandline tools"
 xcode-select --install
@@ -275,5 +271,9 @@ EOF
 chmod +x /usr/local/sbin/spoof-hook.sh
 
 defaults write com.apple.loginwindow LogoutHook "/usr/local/sbin/spoof-hook.sh"
+
+# Install all latest Software Updates
+echo "Installing Software Updates"
+softwareupdate -i -a
 
 echo "Script finished"
