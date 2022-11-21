@@ -106,7 +106,7 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false # Cop
 defaults write com.apple.terminal FocusFollowsMouse -bool true # Enable “focus follows mouse” for Terminal.app
 
 # Set Locale
-echo "Settings locale"
+echo "Settings Locale"
 defaults write NSGlobalDomain AppleLanguages -array "de" "de"
 defaults write NSGlobalDomain AppleLocale -string "de_GB@currency=GBP"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
@@ -128,6 +128,7 @@ pip3 install seaborn
 pip3 install colorama
 
 # Install VS Code
+echo "Installing VS Code"
 curl -C - --output VSCode-darwin-universal.zip https://az764295.vo.msecnd.net/stable/6261075646f055b99068d3688932416f2346dd3b/VSCode-darwin-universal.zip
 cp /Users/"$(whoami)"/VSCode-darwin-universal.zip /Users/"$(whoami)"/DotFiles
 rm /Users/"$(whoami)"/VSCode-darwin-universal.zip
@@ -177,6 +178,7 @@ unzip -q GitHubDesktop-x64.zip
 sudo cp -R /Users/"$(whoami)"/DotFiles/GitHub\ Desktop.app /Applications
 
 # Spoof MAC Address on Boot
+echo "Spoof MAC Address on Boot"
 mkdir -p /usr/local/sbin
 chown ${whoami}:admin /usr/local/sbin
 
