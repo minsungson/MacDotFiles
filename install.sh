@@ -194,7 +194,7 @@ chown ${whoami}:admin /usr/local/sbin
 echo 'export PATH=$PATH:/usr/local/sbin' >> ~/.zshrc
 source ~/.zshrc
 
-curl --fail --output /usr/local/sbin/first-names.txt https://raw.githubusercontent.com/minsungson/DotFiles/master/first-names.txt
+cp /Users/"$(whoami)"/DotFiles/first-names.txt /usr/local/sbin/
 
 cat << "EOF" > /usr/local/sbin/spoof.sh
 #! /bin/sh
