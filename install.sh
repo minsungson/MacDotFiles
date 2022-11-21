@@ -291,5 +291,6 @@ dockutil --no-restart --add "/Applications/Firefox.app"
 dockutil --no-restart --add "/System/Applications/Mail.app"
 dockutil --no-restart --add "/System/Applications/Music.app"
 dockutil --no-restart --add "/Applications/VS\ Code.app"
+killall Dock
 
 echo "Script finished"
