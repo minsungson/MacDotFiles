@@ -143,6 +143,14 @@ hdiutil attach /Users/"$(whoami)"/DotFiles/Skype-8.90.0.407.dmg -quiet
 sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Users/"$(whoami)"/DotFiles
 hdiutil unmount /Volumes/Skype -quiet -force
 
+# Install Stremio 4.4.159
+curl -C - --output Stremio+4.4.159.dmg https://dl.strem.io/shell-osx/v4.4.159/Stremio+4.4.159.dmg
+cp /Users/"$(whoami)"/Stremio+4.4.159.dmg /Users/"$(whoami)"/DotFiles
+rm /Users/"$(whoami)"/Stremio+4.4.159.dmg
+hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
+sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Users/"$(whoami)"/DotFiles
+hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
+
 # Spoof MAC Address on Boot
 mkdir -p /usr/local/sbin
 chown ${whoami}:admin /usr/local/sbin
