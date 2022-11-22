@@ -42,6 +42,15 @@ bash "/Users/"$(whoami)"/DotFiles/.macos.sh"
 echo "Installing Apps"
 bash "/Users/"$(whoami)"/DotFiles/.applications.sh"
 
+# Add Dock Icons
+echo "Adding Dock Items"
+dockutil --no-restart --remove all
+dockutil --no-restart --add "/Applications/Firefox.app"
+dockutil --no-restart --add "/System/Applications/Mail.app"
+dockutil --no-restart --add "/System/Applications/Music.app"
+dockutil --no-restart --add "/Applications/VS\ Code.app"
+killall Dock
+
 # Spoof MAC Address on Boot
 echo "Spoof MAC Address on Boot"
 bash "/Users/"$(whoami)"/DotFiles/.spoof-MAC-Address.sh"

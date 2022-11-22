@@ -87,15 +87,6 @@ sudo pmset -c displaysleep 20 # Sleep the display after 20 minutes when charging
 sudo pmset -b sleep 15 # Set machine sleep to 5 minutes on battery
 sudo pmset -a hibernatemode 3 # 3: Copy RAM to disk so the system state can still be restored in case of a power failure
 
-# Add Dock Icons
-echo "Adding Dock Items"
-dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Firefox.app"
-dockutil --no-restart --add "/System/Applications/Mail.app"
-dockutil --no-restart --add "/System/Applications/Music.app"
-dockutil --no-restart --add "/Applications/VS\ Code.app"
-killall Dock
-
 # Change wallpaper
 echo "Changing Wallpaper"
 cp /Users/"$(whoami)"/DotFiles/archMacintosh.png /Users/"$(whoami)"/Pictures/
