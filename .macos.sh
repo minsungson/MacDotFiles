@@ -88,7 +88,7 @@ sudo pmset -a hibernatemode 3 # 3: Copy RAM to disk so the system state can stil
 # Change wallpaper
 echo "Changing Wallpaper"
 cp /Users/"$(whoami)"/DotFiles/archMacintosh.png /Users/"$(whoami)"/Pictures/
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/"$(whoami)"/Pictures/archMacintosh.png"'
+osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"/Users/"$(whoami)"/Pictures/archMacintosh.png\" as POSIX file"
 
 # Install all latest Software Updates
 echo "Installing Software Updates"
