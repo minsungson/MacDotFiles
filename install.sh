@@ -19,6 +19,8 @@ brew upgrade
 brew install mas
 brew install --cask rectangle
 brew install nextdns/tap/nextdns
+brew install dockutil
+brew cask install iterm2
 
 # # Mac App Store Apps
 echo "Installing Mac App Store Apps"
