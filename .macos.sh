@@ -71,6 +71,8 @@ defaults write com.apple.dock wvous-br-corner -int 5 #Bottom right hot corner fo
 defaults write com.apple.dock wvous-br-modifier -int 0 #Bottom right hot corner for screensaver
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.terminal FocusFollowsMouse -bool true # Enable “focus follows mouse” for Terminal.app
+defaults write -g NSAlertMetricsGatheringEnabled -bool false # Change to old style alert pane
+defaults write com.apple.CrashReporter UseUNC 1 # Show Crash Reporter as notification
 
 # Set Locale
 echo "Settings Locale"
