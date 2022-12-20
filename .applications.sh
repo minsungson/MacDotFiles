@@ -16,9 +16,8 @@ sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Mi
 # Install Python 3.11
 echo "Installing Python"
 curl -C - --output python-3.11.0-macos11.pkg https://www.python.org/ftp/python/3.11.0/python-3.11.0-macos11.pkg
-cp /Users/"$(whoami)"/python-3.11.0-macos11.pkg /Users/"$(whoami)"/DotFiles
+sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/python-3.11.0-macos11.pkg" -target /
 rm /Users/"$(whoami)"/python-3.11.0-macos11.pkg
-sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/3.11.0/python-3.11.0-macos11.pkg" -target /
 
 # Install Skype 8.90.0.407
 echo "Installing Skype"
