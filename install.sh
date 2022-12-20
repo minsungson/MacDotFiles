@@ -54,6 +54,12 @@ dockutil --no-restart --add "/System/Applications/Music.app"
 dockutil --no-restart --add "/Applications/VS\ Code.app"
 killall Dock
 
+# iTerm2 stuff
+echo "Installing iTerm2"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/romkatv/powerlevel10k.git $
+# nano ~/.zshrc and change ZSH_TEME=“powerlevel10k/powerlevel10k”
+
 # Spoof MAC Address on Boot
 echo "Spoof MAC Address on Boot"
 bash "/Users/"$(whoami)"/DotFiles/.spoof-MAC-Address.sh"
