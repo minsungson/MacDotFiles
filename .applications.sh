@@ -12,9 +12,6 @@ sudo cp -R /Users/"$(whoami)"/DotFiles/Visual\ Studio\ Code.app /Applications
 # Install Serialiser
 echo "Activating Office"
 sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
-cp /Users/"$(whoami)"/Microsoft_Office_2019_VL_Serializer.pkg /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/Microsoft_Office_2019_VL_Serializer.pkg
-sudo -S installer -allowUntrusted -verboseR -pkg "/Users/"$(whoami)"/DotFiles/Microsoft_Office_2019_VL_Serializer.pkg" -target /
 
 # Install Python 3.11
 echo "Installing Python"
