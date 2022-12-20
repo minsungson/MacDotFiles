@@ -8,7 +8,7 @@ defaults write com.apple.desktopservices "DSDontWriteNetworkStores" -bool true #
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool false #Don't show file extensions
 defaults write NSGlobalDomain "com.apple.swipescrolldirection" -bool true #Enable Natural Scroll
 defaults write NSGlobalDomain "NSAutomaticSpellingCorrectionEnabled" -bool true #Enable Autocorrect
-defaults write com.apple.dock mineffect -string "suck" && killall Dock #Change minimise animation
+defaults write com.apple.dock "mineffect" -string "suck" && killall Dock #Change minimise animation
 defaults delete NSGlobalDomain AppleHighlightColor #Highlight colour same as accent colour
 defaults write -g "NSNavPanelExpandedStateForSaveMode" -boolean true #Expand Save windows by default
 defaults write -g "NSNavPanelExpandedStateForSaveMode2" -bool true #Expand Save windows by default
