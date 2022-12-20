@@ -22,47 +22,42 @@ rm /Users/"$(whoami)"/python-3.11.0-macos11.pkg
 # Install Skype 8.90.0.407
 echo "Installing Skype"
 curl -C - --output Skype-8.90.0.407.dmg https://download.skype.com/s4l/download/mac/Skype-8.90.0.407.dmg
-cp /Users/"$(whoami)"/Skype-8.90.0.407.dmg /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/Skype-8.90.0.407.dmg
 hdiutil attach /Users/"$(whoami)"/DotFiles/Skype-8.90.0.407.dmg -quiet
 sudo cp -R /Volumes/Skype/Skype.app /Applications
 hdiutil unmount /Volumes/Skype -quiet -force
+rm /Users/"$(whoami)"/Skype-8.90.0.407.dmg
 
 # Install Stremio 4.4.159
 echo "Installing Stremio"
 curl -C - --output Stremio+4.4.159.dmg https://dl.strem.io/shell-osx/v4.4.159/Stremio+4.4.159.dmg
-cp /Users/"$(whoami)"/Stremio+4.4.159.dmg /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/Stremio+4.4.159.dmg
 hdiutil attach /Users/"$(whoami)"/DotFiles/Stremio+4.4.159.dmg -quiet
-sudo cp -R /Volumes/Stremio\ 4.4.159\ 2/Stremio.app /Applications
+sudo cp -R /Volumes/Stremio\ 4.4.159/Stremio.app /Applications
 hdiutil unmount /Volumes/Stremio\ 4.4.159\ 2/Stremio.app -quiet -force
+rm /Users/"$(whoami)"/Stremio+4.4.159.dmg
 
 # Install Calibre 6.8.0
 echo "Installing Calibre"
 curl -C - --output calibre-6.8.0.dmg https://download.calibre-ebook.com/6.8.0/calibre-6.8.0.dmg
-cp /Users/"$(whoami)"/calibre-6.8.0.dmg /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/calibre-6.8.0.dmg
 hdiutil attach /Users/"$(whoami)"/DotFiles/calibre-6.8.0.dmg -quiet
 sudo cp -R /Volumes/calibre-6.8.0/calibre.app /Applications
 hdiutil unmount /Volumes/calibre-6.8.0/calibre.app -quiet -force
+rm /Users/"$(whoami)"/calibre-6.8.0.dmg
 
 # Install App Cleaner
 echo "Installing App Cleaner"
 curl -C - --output AppCleaner_3.6.4.zip https://freemacsoft.net/downloads/AppCleaner_3.6.4.zip
 cp /Users/"$(whoami)"/AppCleaner_3.6.4.zip /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/AppCleaner_3.6.4.zip
-cd /Users/"$(whoami)"/DotFiles
 unzip -q AppCleaner_3.6.4.zip
 sudo cp -R /Users/"$(whoami)"/DotFiles/AppCleaner.app /Applications
+rm /Users/"$(whoami)"/DotFiles/AppCleaner_3.6.4.zip
 
 # Install Anki
 echo "Installing Anki"
 curl -C - --output anki-2.1.54-mac-intel-qt6.dmg "https://apps.ankiweb.net/downloads/archive/anki-2.1.54-mac-intel-qt6.dmg"
-cp /Users/"$(whoami)"/anki-2.1.54-mac-intel-qt6.dmg /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/anki-2.1.54-mac-intel-qt6.dmg
 hdiutil attach /Users/"$(whoami)"/DotFiles/anki-2.1.54-mac-intel-qt6.dmg -quiet
 sudo cp -R /Volumes/Anki/Anki.app /Applications
 hdiutil unmount /Volumes/Anki/Anki.app -quiet -force
+rm /Users/"$(whoami)"/anki-2.1.54-mac-intel-qt6.dmg
 
 # Install KDE-Connect
 echo "Installing KDE Connect"
@@ -76,8 +71,6 @@ hdiutil unmount /Volumes/kdeconnect-kde-master-1713-macos-clang-x86_64.dmg/kdeco
 # Install GitHub Desktop
 echo "Installing GitHub Desktop"
 curl -C - --output GitHubDesktop-x64.zip https://desktop.githubusercontent.com/github-desktop/releases/3.1.2-7cd66717/GitHubDesktop-x64.zip
-cp /Users/"$(whoami)"/GitHubDesktop-x64.zip /Users/"$(whoami)"/DotFiles
-rm /Users/"$(whoami)"/GitHubDesktop-x64.zip
-cd /Users/"$(whoami)"/DotFiles
 unzip -q GitHubDesktop-x64.zip
-sudo cp -R /Users/"$(whoami)"/DotFiles/GitHub\ Desktop.app /Applications
+sudo cp -R /Users/"$(whoami)"/GitHub\ Desktop.app /Applications
+rm /Users/"$(whoami)"/GitHubDesktop-x64.zip
