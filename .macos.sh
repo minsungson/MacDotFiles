@@ -28,10 +28,10 @@ defaults write com.apple.DiskUtility "DUShowEveryPartition" -bool true #Show hid
 defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int 1 #Small sidebar icons
 defaults write com.apple.mail "SendWindowsFriendlyAttachments" -boolean TRUE #Send Windows Ffiendly attachments
 defaults -currentHost write com.apple.QuickTimePlayerX.plist "MGEnableCCAndSubtitlesOnOpen" -bool TRUE #Auto show CC
-defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "AutomaticCheckEnabled" -bool YES #Auto check for Software Updates
-defaults write /Library/Preferences/com.apple.SoftwareUpdate "AutomaticDownload" -bool YES #Auto download Software Updates
-defaults write /Library/Preferences/com.apple.commerce "AutoUpdate" -bool YES #Auto update apps
-defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist "CriticalUpdateInstall" -bool YES #Auto install critical updates
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool YES #Auto check for Software Updates
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool YES #Auto download Software Updates
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool YES #Auto update apps
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool YES #Auto install critical updates
 defaults write com.apple.dock "tilesize" -int "36" && killall Dock #Resize dock icons to 36px
 defaults write com.apple.dock "autohide" -bool "true" # enable autohide
 defaults write com.apple.dock "orientation" -string "left" && killall Dock # left align
