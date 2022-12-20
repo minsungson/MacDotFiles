@@ -54,7 +54,7 @@ defaults write com.apple.finder "ShowPathbar" -bool "true" #Show path bar in Fin
 defaults write com.apple.finder "ShowStatusBar" -bool "true" #Show status bar in Finder
 defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\"" # show seconds in menu bar
 defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0" # immediately show icon in finder next to name
-defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && pkill diskarbitrationd #Disable media not ejected properly notification
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && pkill diskarbitrationd #Disable media not ejected properly notification
 defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool YES #Don't show TimeMachine message for new drives
 defaults write com.apple.screencapture type jpg #Save ScreenShots as .jpg instead of .png
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 #Improve bluetooth audio quality?
@@ -80,7 +80,6 @@ defaults write NSGlobalDomain AppleMetricUnits -int 1
 
 # Energy settings
 echo "Changing Energy Settings"
-sudo systemsetup -setrestartfreeze on # Restart automatically if the computer freezes
 sudo pmset -a displaysleep 15 # Sleep the display after 15 minutes
 sudo pmset -c displaysleep 20 # Sleep the display after 20 minutes when charging
 sudo pmset -b sleep 15 # Set machine sleep to 5 minutes on battery
