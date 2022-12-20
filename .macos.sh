@@ -25,8 +25,6 @@ defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool false #Do
 defaults write com.apple.finder "_FXShowPosixPathInTitle" -bool false #Don't show file path in address bar
 defaults write com.apple.LaunchServices "LSQuarantine" -bool NO
 defaults write com.apple.DiskUtility "DUShowEveryPartition" -bool true #Show hidden partitions
-defaults write com.apple.finder "AppleShowAllFiles" false #Don't show hidden files
-defaults write com.apple.finder "ShowStatusBar" -bool true #Show status bar
 defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int 1 #Small sidebar icons
 defaults write com.apple.mail "SendWindowsFriendlyAttachments" -boolean TRUE #Send Windows Ffiendly attachments
 defaults -currentHost write com.apple.QuickTimePlayerX.plist "MGEnableCCAndSubtitlesOnOpen" -bool TRUE #Auto show CC
